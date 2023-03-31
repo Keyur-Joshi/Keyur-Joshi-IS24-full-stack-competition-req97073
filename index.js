@@ -74,6 +74,12 @@ app.get("/get", async(req, res) => {
     res.json(items);
  })
 
+ app.get("/get/:id", async(req, res) => {
+  const { id } = req.params;
+  const item = await Product.findById(id);
+  res.json(item);
+})
+
  app.post("/postProduct", async(req, res) =>  {
     const id = uuid.v4();
     // await console.log(req.body);
